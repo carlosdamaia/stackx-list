@@ -9,13 +9,18 @@ export function Home() {
 
 
     function handleAddStudent() {
-        const newStudent = {
-            name: studentName,
+        if(studentName !== '') {
+            const newStudent = {
+                name: studentName,
+            }
+    
+            setStudents(prevState => [...prevState, newStudent]);
+    
+            setStudentName('');
         }
-
-        setStudents(prevState => [...prevState, newStudent]);
-
-        setStudentName('');
+        else {
+            alert('Digite um nome')
+        }
     }
 
     function handleRemoveStudent(idStudent) {
